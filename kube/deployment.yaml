@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counterservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: counterservice
+  template:
+    metadata:
+      labels:
+        app: counterservice
+    spec:
+      containers:
+        - name: app
+          image: mukeshmgehani/counterservice:v1
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+---
